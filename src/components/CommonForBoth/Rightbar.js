@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import { FormGroup } from "reactstrap"
 
 import { connect } from "react-redux"
@@ -253,13 +253,10 @@ const RightSidebar = props => {
                 </React.Fragment>
               ) : null}
 
-              <h6 className="text-center">Choose Layouts</h6>
+              {/* <h6 className="text-center">Choose Layouts</h6> */}
 
-              <div className="mb-2">
-                <Link
-                  to="//veltrix-v.react.themesbrand.com"
-                  target="_blank"
-                >
+              {/* <div className="mb-2">
+                <Link to="//veltrix-v.react.themesbrand.com" target="_blank">
                   <img
                     src={layout1}
                     className="img-fluid img-thumbnail"
@@ -269,8 +266,10 @@ const RightSidebar = props => {
               </div>
 
               <div className="mb-2">
-                <Link to="//veltrix-v-dark.react.themesbrand.com" 
-                target="_blank">
+                <Link
+                  to="//veltrix-v-dark.react.themesbrand.com"
+                  target="_blank"
+                >
                   <img
                     src={layout2}
                     className="img-fluid img-thumbnail"
@@ -280,23 +279,25 @@ const RightSidebar = props => {
               </div>
 
               <div className="mb-2">
-                <Link to="//veltrix-v-rtl.react.themesbrand.com" 
-                target="_blank">
+                <Link
+                  to="//veltrix-v-rtl.react.themesbrand.com"
+                  target="_blank"
+                >
                   <img
                     src={layout3}
                     className="img-fluid img-thumbnail"
                     alt=""
                   />
                 </Link>
-              </div>
+              </div> */}
 
-              <Link
+              {/* <Link
                 to="#"
                 className="btn btn-primary btn-block mt-3"
                 target="_blank"
               >
                 <i className="mdi mdi-cart ms-1" /> Purchase Now
-              </Link>
+              </Link> */}
             </div>
           </div>
         </SimpleBar>
@@ -317,7 +318,7 @@ RightSidebar.propTypes = {
   leftSideBarTheme: PropTypes.any,
   leftSideBarType: PropTypes.any,
   showRightSidebarAction: PropTypes.func,
-  topbarTheme: PropTypes.any
+  topbarTheme: PropTypes.any,
 }
 
 const mapStateToProps = state => {

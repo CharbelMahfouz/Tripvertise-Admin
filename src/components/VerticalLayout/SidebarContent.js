@@ -13,6 +13,7 @@ import { Link } from "react-router-dom"
 import { withTranslation } from "react-i18next"
 
 const SidebarContent = props => {
+  console.log(props)
   const ref = useRef()
   // Use ComponentDidMount and ComponentDidUpdate method symultaniously
   useEffect(() => {
@@ -80,10 +81,10 @@ const SidebarContent = props => {
           }
         }
       }
-      scrollElement(item);
+      scrollElement(item)
       return false
     }
-    scrollElement(item);
+    scrollElement(item)
     return false
   }
 
@@ -96,7 +97,9 @@ const SidebarContent = props => {
             <li>
               <Link to="/dashboard" className="waves-effect">
                 <i className="ti-home"></i>
-                <span className="badge rounded-pill bg-primary float-end">2</span>
+                <span className="badge rounded-pill bg-primary float-end">
+                  2
+                </span>
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
@@ -165,9 +168,7 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Range Slider")}</Link>
                 </li>
                 <li>
-                  <Link to="/">
-                    {props.t("Session Timeout")}
-                  </Link>
+                  <Link to="/">{props.t("Session Timeout")}</Link>
                 </li>
                 <li>
                   <Link to="/">{props.t("Progress Bars")}</Link>
@@ -176,9 +177,7 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Sweet-Alert")}</Link>
                 </li>
                 <li>
-                  <Link to="/">
-                    {props.t("Tabs & Accordions")}
-                  </Link>
+                  <Link to="/">{props.t("Tabs & Accordions")}</Link>
                 </li>
                 <li>
                   <Link to="/">{props.t("Typography")}</Link>
@@ -200,7 +199,9 @@ const SidebarContent = props => {
             <li>
               <Link to="/#" className="waves-effect">
                 <i className="ti-receipt"></i>
-                <span className="badge rounded-pill bg-success float-end">6</span>
+                <span className="badge rounded-pill bg-success float-end">
+                  6
+                </span>
                 <span>{props.t("Forms")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
@@ -270,9 +271,7 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Data Tables")}</Link>
                 </li>
                 <li>
-                  <Link to="/">
-                    {props.t("Responsive Table")}
-                  </Link>
+                  <Link to="/">{props.t("Responsive Table")}</Link>
                 </li>
                 <li>
                   <Link to="/">{props.t("Editable Table")}</Link>
@@ -286,9 +285,7 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/">
-                    {props.t("Material Design")}
-                  </Link>
+                  <Link to="/">{props.t("Material Design")}</Link>
                 </li>
                 <li>
                   <Link to="/">{props.t("Font awesome")}</Link>
@@ -311,7 +308,9 @@ const SidebarContent = props => {
             <li>
               <Link to="/#">
                 <i className="ti-location-pin"></i>
-                <span className="badge rounded-pill bg-danger float-end">2</span>
+                <span className="badge rounded-pill bg-danger float-end">
+                  2
+                </span>
                 <span>{props.t("Maps")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
@@ -333,7 +332,6 @@ const SidebarContent = props => {
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-archive"></i>
                 <span>{props.t("Authentication")}</span>
-
               </Link>
               <ul className="sub-menu">
                 <li>
@@ -349,22 +347,16 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Register")} 2</Link>
                 </li>
                 <li>
-                  <Link to="/">
-                    {props.t("Recover Password")}
-                  </Link>
+                  <Link to="/">{props.t("Recover Password")}</Link>
                 </li>
                 <li>
-                  <Link to="/">
-                    {props.t("Recover Password")} 2
-                  </Link>
+                  <Link to="/">{props.t("Recover Password")} 2</Link>
                 </li>
                 <li>
                   <Link to="/">{props.t("Lock screen")}</Link>
                 </li>
                 <li>
-                  <Link to="/">
-                    {props.t("Lock screen")} 2
-                  </Link>
+                  <Link to="/">{props.t("Lock screen")} 2</Link>
                 </li>
               </ul>
             </li>

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import MetaTags from 'react-meta-tags';
+import PropTypes from "prop-types"
+import MetaTags from "react-meta-tags"
 import React, { useState, useEffect } from "react"
 import {
   Container,
@@ -27,7 +27,7 @@ import avatar from "../../assets/images/users/user-1.jpg"
 import { editProfile, resetProfileFlag } from "../../store/actions"
 
 const UserProfile = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const { error, success } = useSelector(state => state.Profile)
   const [email, setemail] = useState("")
   const [name, setname] = useState("")
@@ -49,8 +49,8 @@ const UserProfile = () => {
         setidx(obj.uid)
       }
       setTimeout(() => {
-        dispatch(resetProfileFlag());
-      }, 3000);
+        dispatch(resetProfileFlag())
+      }, 3000)
     }
   }, [success])
 
@@ -62,7 +62,7 @@ const UserProfile = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Profile | Tripvertise Admin</title>
+          <title>Profile | Tripvertise - Admin</title>
         </MetaTags>
         <Container fluid>
           {/* Render Breadcrumb */}
@@ -70,12 +70,8 @@ const UserProfile = () => {
 
           <Row>
             <Col lg="12">
-              {error && error ? (
-                <Alert color="danger">{error}</Alert>
-              ) : null}
-              {success? (
-                <Alert color="success">{success}</Alert>
-              ) : null}
+              {error && error ? <Alert color="danger">{error}</Alert> : null}
+              {success ? <Alert color="success">{success}</Alert> : null}
 
               <Card>
                 <CardBody>
@@ -114,13 +110,13 @@ const UserProfile = () => {
                   <AvField
                     name="username"
                     label="User Name"
-                    value={name || ''}
+                    value={name || ""}
                     className="form-control"
                     placeholder="Enter User Name"
                     type="text"
                     required
                   />
-                  <AvField name="idx" value={idx || ''} type="hidden" />
+                  <AvField name="idx" value={idx || ""} type="hidden" />
                 </div>
                 <div className="text-center mt-4">
                   <Button type="submit" color="danger">
@@ -147,6 +143,4 @@ const UserProfile = () => {
 //   return { error, success }
 // }
 
-export default withRouter(
-  connect(null, null )(UserProfile)
-)
+export default withRouter(connect(null, null)(UserProfile))

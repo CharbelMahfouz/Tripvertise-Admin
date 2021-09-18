@@ -29,7 +29,7 @@ const Login = () => {
   return (
     <React.Fragment>
       <MetaTags>
-        <title>Login | Tripvertise Admin</title>
+        <title>Login | Tripvertise - Admin</title>
       </MetaTags>
       <div className="home-btn d-none d-sm-block">
         <Link to="/" className="text-dark">
@@ -45,7 +45,7 @@ const Login = () => {
                   <div className="text-primary text-center p-4">
                     <h5 className="text-white font-size-20">Welcome Back !</h5>
                     <p className="text-white-50">
-                      Sign in to continue to Veltrix.
+                      Sign in to continue to Tripvertise Admin.
                     </p>
                     <Link to="/" className="logo logo-admin">
                       <img src={tripvertiseIcon} height="24" alt="logo" />
@@ -133,10 +133,10 @@ const Login = () => {
                     Signup now{" "}
                   </Link>{" "}
                 </p>
-                <p>
+                {/* <p>
                   © {new Date().getFullYear()} Veltrix. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
-                </p>
+                </p> */}
               </div>
             </Col>
           </Row>

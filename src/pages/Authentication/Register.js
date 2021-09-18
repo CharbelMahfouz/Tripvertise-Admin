@@ -32,9 +32,7 @@ const Register = () => {
   return (
     <React.Fragment>
       <MetaTags>
-        <title>
-          Register | Veltrix - Responsive Bootstrap 5 Admin Dashboard
-        </title>
+        <title>Register | Tripvertise - Admin</title>
       </MetaTags>
       <div className="home-btn d-none d-sm-block">
         <Link to="/" className="text-dark">
@@ -50,7 +48,7 @@ const Register = () => {
                   <div className="text-primary text-center p-4">
                     <h5 className="text-white font-size-20">Free Register</h5>
                     <p className="text-white-50">
-                      Get your free Veltrix account now.
+                      Get your free Tripvertise Admin account now.
                     </p>
                     <a href="index.html" className="logo logo-admin">
                       <img src={tripvertiseIcon} height="24" alt="logo" />
@@ -120,7 +118,7 @@ const Register = () => {
                       <div className="mt-2 mb-0 row">
                         <div className="col-12 mt-4">
                           <p className="mb-0">
-                            By registering you agree to the Veltrix{" "}
+                            By registering you agree to the Tripvertise{" "}
                             <Link to="#" className="text-primary">
                               Terms of Use
                             </Link>
@@ -139,10 +137,10 @@ const Register = () => {
                     Login
                   </Link>{" "}
                 </p>
-                <p>
+                {/* <p>
                   © {new Date().getFullYear()} Veltrix. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
-                </p>
+                </p> */}
               </div>
             </Col>
           </Row>

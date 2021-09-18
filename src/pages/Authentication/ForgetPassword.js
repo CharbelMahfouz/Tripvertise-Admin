@@ -29,9 +29,7 @@ const ForgetPasswordPage = () => {
   return (
     <React.Fragment>
       <MetaTags>
-        <title>
-          Forget Password | Veltrix - Responsive Bootstrap 5 Admin Dashboard
-        </title>
+        <title>Forgot Password | Tripvertise - Admin</title>
       </MetaTags>
       <div className="home-btn d-none d-sm-block">
         <Link to="/" className="text-dark">
@@ -46,7 +44,7 @@ const ForgetPasswordPage = () => {
                 <div className="bg-primary">
                   <div className="text-primary text-center p-4">
                     <h5 className="text-white font-size-20 p-2">
-                      Forget Password
+                      Forgot Password
                     </h5>
                     <a href="index.html" className="logo logo-admin">
                       <img src={tripvertiseIcon} height="24" alt="logo" />
@@ -108,10 +106,10 @@ const ForgetPasswordPage = () => {
                     Sign In here{" "}
                   </Link>{" "}
                 </p>
-                <p>
+                {/* <p>
                   © {new Date().getFullYear()} Veltrix. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
-                </p>
+                </p> */}
               </div>
             </Col>
           </Row>

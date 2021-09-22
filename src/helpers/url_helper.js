@@ -1,12 +1,10 @@
 //REGISTER
 export const POST_FAKE_REGISTER = "/post-fake-register"
-export const POST_JWT_REGISTER =
-  "http://charbelmahfouz2-001-site1.dtempurl.com/api/Account/Register"
+export const POST_JWT_REGISTER = "https://localhost:44317/api/Account/Register"
 //LOGIN
 export const POST_FAKE_LOGIN = "/post-fake-login"
 export const POST_FAKE_JWT_LOGIN = "/post-jwt-login"
-export const POST_JWT_LOGIN =
-  "http://charbelmahfouz2-001-site1.dtempurl.com/api/Account/Login"
+export const POST_JWT_LOGIN = "https://localhost:44317/api/Account/Login"
 export const POST_FAKE_PASSWORD_FORGET = "/fake-forget-pwd"
 export const POST_FAKE_JWT_PASSWORD_FORGET = "/jwt-forget-pwd"
 

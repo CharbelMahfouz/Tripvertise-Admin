@@ -5,14 +5,15 @@ import accessToken from "./jwt-token-access/accessToken"
 const token = accessToken
 
 //apply base url for axios
-const API_URL = "https://localhost:44317/api"
+const API_URL = process.env.REACT_APP_API_URL
 
-const axiosApi = axios.create({
+export const axiosApi = axios.create({
   baseURL: API_URL,
 })
 
 axiosApi.defaults.headers.common["Authorization"] = token
 axiosApi.defaults.headers.post["Access-Control-Allow-Origin"] = "*"
+axiosApi.defaults.headers["Access-Control-Allow-Origin"] = "*"
 
 // axiosApi.interceptors.response.use(
 //   response => response,

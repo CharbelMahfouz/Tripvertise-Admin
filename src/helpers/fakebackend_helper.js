@@ -1,6 +1,7 @@
 import axios from "axios"
 import { post, del, get, put } from "./api_helper"
 import * as url from "./url_helper"
+import { axiosApi } from "./api_helper"
 
 // Gets the logged in user data from local session
 const getLoggedInUser = () => {
@@ -30,9 +31,7 @@ const postFakeProfile = data => post(url.POST_EDIT_PROFILE, data)
 
 // Register Method
 const postJwtRegister = (url, data) => {
-  console.log(url)
-  console.log(data)
-  return axios
+  return axiosApi
     .post(url, data)
     .then(response => {
       if (response.status >= 200 || response.status <= 299) return response.data

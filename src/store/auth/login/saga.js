@@ -6,7 +6,7 @@ import { apiError, loginSuccess, logoutUserSuccess } from "./actions"
 
 //Include Both Helper File with needed methods
 
-import { postJwtLogin } from "../../../helpers/authHelper"
+import { postJwtLogin } from "../../../helpers/api_requests_helper"
 
 function* loginUser({ payload: { user, history } }) {
   try {

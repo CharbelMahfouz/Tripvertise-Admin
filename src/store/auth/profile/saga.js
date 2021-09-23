@@ -6,7 +6,10 @@ import { profileSuccess, profileError } from "./actions"
 
 //Include Both Helper File with needed methods
 
-import { postFakeProfile, postJwtProfile } from "../../../helpers/authHelper"
+import {
+  postFakeProfile,
+  postJwtProfile,
+} from "../../../helpers/api_requests_helper"
 
 function* editProfile({ payload: { user } }) {
   try {

@@ -28,7 +28,7 @@ import {
   updateEvent,
   deleteEvent,
   getCategories,
-} from "../../helpers/authHelper"
+} from "../../helpers/api_requests_helper"
 
 function* fetchEvents() {
   try {

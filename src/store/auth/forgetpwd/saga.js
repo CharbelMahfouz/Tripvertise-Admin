@@ -8,7 +8,7 @@ import { userForgetPasswordSuccess, userForgetPasswordError } from "./actions"
 import {
   postFakeForgetPwd,
   postJwtForgetPwd,
-} from "../../../helpers/authHelper"
+} from "../../../helpers/api_requests_helper"
 
 //If user is send successfully send mail link then dispatch redux action's are directly from here.
 function* forgetUser({ payload: { user, history } }) {

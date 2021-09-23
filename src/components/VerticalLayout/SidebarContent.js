@@ -113,7 +113,7 @@ const SidebarContent = props => {
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-email"></i>
+                <i className="ti-car"></i>
                 <span>{props.t("Drivers")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
@@ -129,7 +129,7 @@ const SidebarContent = props => {
               </ul>
             </li>
 
-            <li className="menu-title">{props.t("Components")}</li>
+            {/* <li className="menu-title">{props.t("Components")}</li>
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
@@ -195,8 +195,8 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Rating")}</Link>
                 </li>
               </ul>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="/#" className="waves-effect">
                 <i className="ti-receipt"></i>
                 <span className="badge rounded-pill bg-success float-end">
@@ -233,8 +233,8 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Form Mask")}</Link>
                 </li>
               </ul>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-pie-chart"></i>
                 <span>{props.t("Charts")}</span>
@@ -257,8 +257,8 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Sparkline Chart")}</Link>
                 </li>
               </ul>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-view-grid"></i>
                 <span>{props.t("Tables")}</span>
@@ -278,8 +278,8 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
+            <li> */}
+            {/* <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-face-smile"></i>
                 <span>{props.t("Icons")}</span>
               </Link>
@@ -303,9 +303,9 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Typicons Icons")}</Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <Link to="/#">
                 <i className="ti-location-pin"></i>
                 <span className="badge rounded-pill bg-danger float-end">
@@ -324,9 +324,9 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Leaflet Maps")}</Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            <li className="menu-title">Extras</li>
+            {/* <li className="menu-title">Extras</li>
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
@@ -359,9 +359,9 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Lock screen")} 2</Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-support"></i>
                 <span>{props.t("Extra Pages")}</span>
@@ -401,9 +401,9 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("FAQs")}</Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-bookmark-alt"></i>
                 <span> {props.t("Email Templates")} </span>
@@ -419,9 +419,9 @@ const SidebarContent = props => {
                   <Link to="/">{props.t("Billing Email")}</Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-more"></i>
                 <span>{props.t("Multi Level")}</span>
@@ -444,7 +444,7 @@ const SidebarContent = props => {
                   </ul>
                 </li>
               </ul>
-            </li>
+            </li> */}
           </ul>
         </div>
       </SimpleBar>

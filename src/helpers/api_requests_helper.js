@@ -73,6 +73,12 @@ export const deleteEvent = event =>
 // get Categories
 export const getCategories = () => get(url.GET_CATEGORIES)
 
+// DRIVER REQUESTS
+// get Requests
+export const getDriverRequests = () => {
+  return get(url.GET_DRIVER_REQUESTS)
+}
+
 export {
   getLoggedInUser,
   isUserAuthenticated,

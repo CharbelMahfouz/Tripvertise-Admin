@@ -1,8 +1,6 @@
 import axios from "axios"
-import accessToken from "./jwt-token-access/accessToken"
 
 //pass new generated access token here
-const token = accessToken
 
 //apply base url for axios
 const API_URL = process.env.REACT_APP_API_URL
@@ -11,28 +9,27 @@ export const axiosApi = axios.create({
   baseURL: API_URL,
 })
 
-axiosApi.defaults.headers.common["Authorization"] = token
+// axiosApi.defaults.headers.common["Authorization"] = token
 axiosApi.defaults.headers.post["Access-Control-Allow-Origin"] = "*"
-axiosApi.defaults.headers["Access-Control-Allow-Origin"] = "*"
+axiosApi.defaults.headers.get["Access-Control-Allow-Origin"] = "*"
+axiosApi.defaults.headers.common["Access-Control-Allow-Headers"] = "*"
 
-// axiosApi.interceptors.response.use(
-//   response => response,
-//   error => Promise.reject(error)
-// )
+axiosApi.interceptors.response.use(
+  response => response,
+  error => Promise.reject(error)
+)
 
 export async function get(url, config = {}) {
-  console.log(url)
   return await axiosApi.get(url, { ...config }).then(response => {
-    console.log(response.data)
+    return response.data
   })
 }
 
 export async function post(url, data, config = {}) {
-  console.log(url)
-  console.log(data)
   return axiosApi
     .post(url, { ...data }, { ...config })
-    .then(response => console.log(response.data))
+    .then(response => response.data)
+    .catch(error => console.log(error))
 }
 
 export async function put(url, data, config = {}) {

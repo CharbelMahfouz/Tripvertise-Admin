@@ -15,22 +15,12 @@ const isUserAuthenticated = () => {
   return getLoggedInUser() !== null
 }
 
-// Register Method
-const postFakeRegister = data => post(url.POST_FAKE_REGISTER, data)
-
-// Login Method
-const postFakeLogin = data => post(url.POST_FAKE_LOGIN, data)
-
-// postForgetPwd
-const postFakeForgetPwd = data => post(url.POST_FAKE_PASSWORD_FORGET, data)
-
 // Edit profile
 const postJwtProfile = data => post(url.POST_EDIT_JWT_PROFILE, data)
 
-const postFakeProfile = data => post(url.POST_EDIT_PROFILE, data)
-
 // Register Method
 const postJwtRegister = (url, data) => {
+  console.log(url)
   return axiosApi
     .post(url, data)
     .then(response => {
@@ -86,10 +76,6 @@ export const getCategories = () => get(url.GET_CATEGORIES)
 export {
   getLoggedInUser,
   isUserAuthenticated,
-  postFakeRegister,
-  postFakeLogin,
-  postFakeProfile,
-  postFakeForgetPwd,
   postJwtRegister,
   postJwtLogin,
   postJwtForgetPwd,

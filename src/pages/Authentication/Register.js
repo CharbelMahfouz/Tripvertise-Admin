@@ -76,7 +76,7 @@ const Register = () => {
                       <div className="mb-3">
                         <AvField
                           id="email"
-                          name="email"
+                          name="Email"
                           label="Email"
                           className="form-control"
                           placeholder="Enter email"
@@ -87,7 +87,7 @@ const Register = () => {
 
                       <div className="mb-3">
                         <AvField
-                          name="username"
+                          name="Username"
                           label="Username"
                           type="text"
                           required
@@ -96,7 +96,7 @@ const Register = () => {
                       </div>
                       <div className="mb-3">
                         <AvField
-                          name="password"
+                          name="Password"
                           label="Password"
                           type="password"
                           required

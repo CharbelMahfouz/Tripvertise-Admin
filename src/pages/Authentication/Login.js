@@ -23,6 +23,7 @@ const Login = () => {
   const { error } = useSelector(state => state.Login)
   // handleValidSubmit
   const handleValidSubmit = (event, values) => {
+    console.log(values)
     dispatch(loginUser(values, history))
   }
 
@@ -69,7 +70,7 @@ const Login = () => {
                         <AvField
                           name="email"
                           label="Email"
-                          value="admin@themesbrand.com"
+                          value="test123@gmail.com"
                           className="form-control"
                           placeholder="Enter email"
                           type="email"

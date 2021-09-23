@@ -103,28 +103,28 @@ const SidebarContent = props => {
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
-
+            {/* 
             <li>
               <Link to="/" className=" waves-effect">
                 <i className="ti-calendar"></i>
-                <span>{props.t("Calendar")}</span>
+                <span>{props.t("Drivers")}</span>
               </Link>
-            </li>
+            </li> */}
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-email"></i>
-                <span>{props.t("Email")}</span>
+                <span>{props.t("Drivers")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/">{props.t("Inbox")}</Link>
+                  <Link to="/driverrequests">{props.t("Driver Requests")}</Link>
                 </li>
                 <li>
-                  <Link to="/">{props.t("Email Read")} </Link>
+                  <Link to="/">{props.t("Approved ")} </Link>
                 </li>
                 <li>
-                  <Link to="/">{props.t("Email Compose")} </Link>
+                  <Link to="/">{props.t("Rejected")} </Link>
                 </li>
               </ul>
             </li>

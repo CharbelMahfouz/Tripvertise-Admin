@@ -12,20 +12,10 @@ import { getDriverRequests } from "store/actions"
 const DriverRequests = () => {
   const dispatch = useDispatch()
   const [columns, setColumns] = useState([])
+  const [rows, setRows] = useState([])
 
   const { requests } = useSelector(state => state.DriverRequests)
-  console.log(requests)
-  const rows = requests.map(req => {
-    return {
-      name: req.driverName,
-      email: req.email,
-      phone: req.phoneNumber,
-      city: req.city,
-      car: req.carMake,
-      color: req.carColor,
-      plate: req.plateNumber,
-    }
-  })
+
   const data = {
     columns: [
       {
@@ -105,8 +95,25 @@ const DriverRequests = () => {
     fetchDriverRequests()
   }, [])
 
+  // useEffect(() => {
+  //   requests && setColumns(requests.map(column => Object.entries(column)))
+  // }, [requests])
+
   useEffect(() => {
-    setColumns(requests.map(column => Object.entries(column)))
+    requests &&
+      setRows(
+        requests.map(req => {
+          return {
+            name: req.driverName,
+            email: req.email,
+            phone: req.phoneNumber,
+            city: req.city,
+            car: req.carMake,
+            color: req.carColor,
+            plate: req.plateNumber,
+          }
+        })
+      )
   }, [requests])
 
   return (

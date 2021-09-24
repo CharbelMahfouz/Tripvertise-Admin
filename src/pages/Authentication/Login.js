@@ -82,7 +82,7 @@ const Login = () => {
                         <AvField
                           name="password"
                           label="Password"
-                          value="123456"
+                          value="P@ssword123!"
                           type="password"
                           required
                           placeholder="Enter Password"

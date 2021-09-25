@@ -6,10 +6,7 @@ import { profileSuccess, profileError } from "./actions"
 
 //Include Both Helper File with needed methods
 
-import {
-  postFakeProfile,
-  postJwtProfile,
-} from "../../../helpers/api_requests_helper"
+import { postJwtProfile } from "../../../helpers/api_requests_helper"
 
 function* editProfile({ payload: { user } }) {
   try {
@@ -22,12 +19,6 @@ function* editProfile({ payload: { user } }) {
       yield put(profileSuccess(response))
     } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
       const response = yield call(postJwtProfile, "/post-jwt-profile", {
-        username: user.username,
-        idx: user.idx,
-      })
-      yield put(profileSuccess(response))
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      const response = yield call(postFakeProfile, {
         username: user.username,
         idx: user.idx,
       })

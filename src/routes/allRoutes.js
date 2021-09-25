@@ -13,6 +13,7 @@ import DriverRequests from "../pages/DriverRequests/index"
 
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
+import DriverProfile from "pages/DriverProfile"
 
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
@@ -20,6 +21,7 @@ const userRoutes = [
   // // //profile
   { path: "/profile", component: UserProfile },
   { path: "/driverrequests", component: DriverRequests },
+  { path: "/driverprofile/:id", component: DriverProfile },
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
 ]

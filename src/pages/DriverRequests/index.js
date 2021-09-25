@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import "./datatables.scss"
 import { getDriverRequests } from "store/actions"
+import { Link } from "react-router-dom"
 
 const DriverRequests = () => {
   const dispatch = useDispatch()
@@ -61,29 +62,34 @@ const DriverRequests = () => {
         width: 100,
       },
       {
-        label: "Front Picture",
-        field: "front",
-        sort: "asc",
+        label: "Action",
+        field: "profile",
         width: 100,
       },
-      {
-        label: "Rear Picture",
-        field: "rear",
-        sort: "asc",
-        width: 100,
-      },
-      {
-        label: "Left Side Picture",
-        field: "left",
-        sort: "asc",
-        width: 100,
-      },
-      {
-        label: "Right Side Picture",
-        field: "right",
-        sort: "asc",
-        width: 100,
-      },
+      // {
+      //   label: "Front Picture",
+      //   field: "front",
+      //   sort: "asc",
+      //   width: 100,
+      // },
+      // {
+      //   label: "Rear Picture",
+      //   field: "rear",
+      //   sort: "asc",
+      //   width: 100,
+      // },
+      // {
+      //   label: "Left Side Picture",
+      //   field: "left",
+      //   sort: "asc",
+      //   width: 100,
+      // },
+      // {
+      //   label: "Right Side Picture",
+      //   field: "right",
+      //   sort: "asc",
+      //   width: 100,
+      // },
     ],
     rows: rows,
   }
@@ -111,6 +117,7 @@ const DriverRequests = () => {
             car: req.carMake,
             color: req.carColor,
             plate: req.plateNumber,
+            profile: <Link to={`/driverprofile/${req.id}`}>View Profile</Link>,
           }
         })
       )
@@ -135,7 +142,7 @@ const DriverRequests = () => {
                 <CardBody>
                   <CardTitle className="h4">All Driver Requests </CardTitle>
 
-                  <MDBDataTable responsive striped bordered data={data} />
+                  <MDBDataTable responsive striped bordered hover data={data} />
                 </CardBody>
               </Card>
             </Col>

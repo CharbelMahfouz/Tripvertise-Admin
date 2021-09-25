@@ -5,7 +5,7 @@ import { REGISTER_USER } from "./actionTypes"
 import { registerUserSuccessful, registerUserFailed } from "./actions"
 
 //Include Both Helper File with needed methods
-import { postFakeRegister, postJwtRegister } from "../../../helpers/api_requests_helper"
+import { postJwtRegister } from "../../../helpers/api_requests_helper"
 import { POST_JWT_LOGIN, POST_JWT_REGISTER } from "helpers/url_helper"
 
 // Is user register successfull then direct plot user in redux.
@@ -25,9 +25,6 @@ function* registerUser({ payload: { user } }) {
         user
       )
       console.log(response)
-      yield put(registerUserSuccessful(response))
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      const response = yield call(postFakeRegister, user)
       yield put(registerUserSuccessful(response))
     }
   } catch (error) {

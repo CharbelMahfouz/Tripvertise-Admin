@@ -11,22 +11,9 @@ import { POST_JWT_LOGIN, POST_JWT_REGISTER } from "helpers/url_helper"
 // Is user register successfull then direct plot user in redux.
 function* registerUser({ payload: { user } }) {
   try {
-    if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-      const response = yield call(
-        fireBaseBackend.registerUser,
-        user.email,
-        user.password
-      )
-      yield put(registerUserSuccessful(response))
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
-      const response = yield call(
-        postJwtRegister,
-        `${POST_JWT_REGISTER}/1`,
-        user
-      )
-      console.log(response)
-      yield put(registerUserSuccessful(response))
-    }
+    const response = yield call(postJwtRegister, `${POST_JWT_REGISTER}/1`, user)
+    console.log(response)
+    yield put(registerUserSuccessful(response))
   } catch (error) {
     yield put(registerUserFailed(error))
   }

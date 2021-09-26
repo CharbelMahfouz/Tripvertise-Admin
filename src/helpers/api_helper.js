@@ -1,15 +1,18 @@
 import axios from "axios"
 
 //pass new generated access token here
-
+let token
+let user
+if (localStorage.getItem("authUser")) {
+  user = JSON.parse(localStorage.getItem("authUser"))
+}
 //apply base url for axios
 const API_URL = process.env.REACT_APP_API_URL
-
 export const axiosApi = axios.create({
   baseURL: API_URL,
 })
-
-// axiosApi.defaults.headers.common["Authorization"] = token
+const authorization = `Bearer ${user.token}`
+axiosApi.defaults.headers.common["Authorization"] = `Bearer ${user.token}`
 axiosApi.defaults.headers.post["Access-Control-Allow-Origin"] = "*"
 axiosApi.defaults.headers.get["Access-Control-Allow-Origin"] = "*"
 axiosApi.defaults.headers.common["Access-Control-Allow-Headers"] = "*"

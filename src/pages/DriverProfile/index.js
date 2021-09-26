@@ -24,6 +24,8 @@ import {
 import SweetAlert from "react-bootstrap-sweetalert"
 
 import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Lightbox from "react-image-lightbox"
+import "react-image-lightbox/style.css"
 
 const DriverProfile = () => {
   const { id } = useParams()
@@ -40,6 +42,7 @@ const DriverProfile = () => {
     frontPicture: "",
     rearPicture: "",
     rightSidePicture: "",
+    leftSidePicture: "",
   })
   const [confirm_alert, setconfirm_alert] = useState(false)
   const [dynamic_title, setdynamic_title] = useState("")
@@ -47,8 +50,29 @@ const DriverProfile = () => {
   const [dynamic_description, setdynamic_description] = useState("")
   const [alertTitle, setAlertTitle] = useState("Are You Sure?")
   const [confirmBtnText, setConfirmBtnText] = useState("")
-
+  const [photoIndex, setphotoIndex] = useState(0)
+  const [isGallery, setisGallery] = useState(false)
   const [activeTab, setActiveTab] = useState("1")
+
+  const images = [
+    {
+      src: driver.frontPicture,
+      label: "Front Picture",
+    },
+    {
+      src: driver.rearPicture,
+      label: "Rear Picture",
+    },
+    {
+      src: driver.leftSidePicture,
+      label: "Left Side Picture",
+    },
+    {
+      src: driver.rightSidePicture,
+      label: "Right Side Picture",
+    },
+  ]
+
   function toggle(tab) {
     if (activeTab !== tab) {
       setActiveTab(tab)
@@ -69,7 +93,26 @@ const DriverProfile = () => {
             title="Driver Profile"
             breadcrumbItem={driver.driverName}
           />
-
+          {isGallery ? (
+            <Lightbox
+              mainSrc={images[photoIndex].src}
+              nextSrc={images[(photoIndex + 1) % images.length].src}
+              prevSrc={
+                images[(photoIndex + images.length - 1) % images.length].src
+              }
+              enableZoom={true}
+              onCloseRequest={() => {
+                setisGallery(false)
+              }}
+              onMovePrevRequest={() => {
+                setphotoIndex((photoIndex + images.length - 1) % images.length)
+              }}
+              onMoveNextRequest={() => {
+                setphotoIndex((photoIndex + 1) % images.length)
+              }}
+              imageCaption={images[photoIndex].label}
+            />
+          ) : null}
           <Row>
             <Col lg={12}>
               <Card>
@@ -231,20 +274,26 @@ const DriverProfile = () => {
                     <TabPane tabId="3">
                       <Row>
                         <Col sm="12">
-                          <CardText className="mb-0">
-                            Etsy mixtape wayfarers, ethical wes anderson tofu
-                            before they sold out mcsweeney's organic lomo retro
-                            fanny pack lo-fi farm-to-table readymade. Messenger
-                            bag gentrify pitchfork tattooed craft beer, iphone
-                            skateboard locavore carles etsy salvia banksy hoodie
-                            helvetica. DIY synth PBR banksy irony. Leggings
-                            gentrify squid 8-bit cred pitchfork. Williamsburg
-                            banh mi whatever gluten-free, carles pitchfork
-                            biodiesel fixie etsy retro mlkshk vice blog.
-                            Scenester cred you probably haven't heard of them,
-                            vinyl craft beer blog stumptown. Pitchfork
-                            sustainable tofu synth chambray yr.
-                          </CardText>
+                          <div className="popup-gallery d-flex flex-wrap">
+                            {images.map((img, index) => {
+                              return (
+                                <div
+                                  key={index}
+                                  className="img-fluid float-left"
+                                >
+                                  <img
+                                    src={img.src}
+                                    onClick={() => {
+                                      setisGallery(true)
+                                      setphotoIndex(index)
+                                    }}
+                                    alt={img.label}
+                                    width="120"
+                                  />
+                                </div>
+                              )
+                            })}
+                          </div>
                         </Col>
                       </Row>
                     </TabPane>
@@ -266,7 +315,7 @@ const DriverProfile = () => {
                       }}
                       id="sa-success"
                     >
-                      Accept
+                      Approve
                     </Button>
                     <Button
                       color="danger"

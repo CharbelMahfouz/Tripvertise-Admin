@@ -11,8 +11,10 @@ const API_URL = process.env.REACT_APP_API_URL
 export const axiosApi = axios.create({
   baseURL: API_URL,
 })
-const authorization = `Bearer ${user.token}`
-axiosApi.defaults.headers.common["Authorization"] = `Bearer ${user.token}`
+if (user) {
+  const authorization = `Bearer ${user.token}`
+  axiosApi.defaults.headers.common["Authorization"] = authorization
+}
 axiosApi.defaults.headers.post["Access-Control-Allow-Origin"] = "*"
 axiosApi.defaults.headers.get["Access-Control-Allow-Origin"] = "*"
 axiosApi.defaults.headers.common["Access-Control-Allow-Headers"] = "*"

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import classnames from "classnames"
 import { MetaTags } from "react-meta-tags"
+import { useDispatch } from "react-redux"
 import {
   Button,
   Card,
@@ -26,8 +27,10 @@ import SweetAlert from "react-bootstrap-sweetalert"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import Lightbox from "react-image-lightbox"
 import "react-image-lightbox/style.css"
+import { setDriverRequestStatus } from "store/actions"
 
 const DriverProfile = () => {
+  const dispatch = useDispatch()
   const { id } = useParams()
   const { requests } = useSelector(state => state.DriverRequests)
   const [driver, setDriver] = useState({
@@ -312,6 +315,7 @@ const DriverProfile = () => {
                           `${driver.driverName} has been approved!`
                         )
                         setdynamic_title("Approved")
+                        dispatch(setDriverRequestStatus(driver.id, 2))
                       }}
                       id="sa-success"
                     >
@@ -330,6 +334,7 @@ const DriverProfile = () => {
                           `${driver.driverName} has been rejected!`
                         )
                         setdynamic_title("Rejected")
+                        dispatch(setDriverRequestStatus(driver.id, 3))
                       }}
                     >
                       Reject

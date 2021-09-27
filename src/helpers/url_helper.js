@@ -20,3 +20,5 @@ export const GET_CATEGORIES = "/categories"
 
 //DRIVER REQUESTS
 export const GET_DRIVER_REQUESTS = "/Admin/GetAllDriverRegistrations"
+export const SET_DRIVER_REQUEST_STATUS = "/Admin/SetRegistrationStatus"
+

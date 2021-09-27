@@ -118,13 +118,13 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/driverrequests">{props.t("Driver Requests")}</Link>
+                  <Link to="/driverrequests?statusId=0">{props.t("Driver Requests")}</Link>
                 </li>
                 <li>
-                  <Link to="/">{props.t("Approved ")} </Link>
+                  <Link to="/driverrequests?statusId=2">{props.t("Approved ")} </Link>
                 </li>
                 <li>
-                  <Link to="/">{props.t("Rejected")} </Link>
+                  <Link to="/driverrequests?statusId=3">{props.t("Rejected")} </Link>
                 </li>
               </ul>
             </li>

@@ -1,12 +1,13 @@
 import { takeEvery, put, call } from "redux-saga/effects"
-import { GET_REQUESTS } from "./actionTypes"
+import { GET_REQUESTS, SET_REQUEST_STATUS } from "./actionTypes"
 import { getDriverRequestsSuccess, getDriverRequestsFail } from "./actions"
-import { getDriverRequests } from "helpers/api_requests_helper"
+import { getDriverRequests, setRequestStatus } from "helpers/api_requests_helper"
+import { setDriverRequestStatusSuccess } from "store/actions"
 
-function* fetchDriverRequests() {
+function* fetchDriverRequests({id}) {
   try {
-    const response = yield call(getDriverRequests)
-    console.log(response)
+    const response = yield call(getDriverRequests, id)
+    console.log(id)
     yield put(getDriverRequestsSuccess(response))
   } catch (error) {
     console.log(error)
@@ -14,8 +15,21 @@ function* fetchDriverRequests() {
   }
 }
 
+function* setDriverRequestStatus({requestId , statusId}) {
+  try {
+    const response = yield call(setRequestStatus, requestId , statusId)
+    console.log(response)
+    yield put(setDriverRequestStatusSuccess(response))
+  } catch (error) {
+    console.log(error)
+    yield put(setDriverRequestStatusFailed(error))
+  }
+}
+
+
 function* driverRequestsSaga() {
   yield takeEvery(GET_REQUESTS, fetchDriverRequests)
+  yield takeEvery(SET_REQUEST_STATUS, setDriverRequestStatus)
 }
 
 export default driverRequestsSaga

@@ -75,9 +75,17 @@ export const getCategories = () => get(url.GET_CATEGORIES)
 
 // DRIVER REQUESTS
 // get Requests
-export const getDriverRequests = () => {
-  return get(url.GET_DRIVER_REQUESTS)
+export const getDriverRequests = (id) => {
+  return get(`${url.GET_DRIVER_REQUESTS}/?statusId=${id}`)
 }
+
+export const setRequestStatus = (requestId , statusId) => {
+  console.log(requestId, statusId)
+  return post(`${url.SET_DRIVER_REQUEST_STATUS}/${requestId}/${statusId}`)
+}
+
+
+
 
 export {
   getLoggedInUser,

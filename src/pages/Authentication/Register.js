@@ -110,7 +110,15 @@ const Register = () => {
                             className="btn btn-primary w-md waves-effect waves-light"
                             type="submit"
                           >
-                            Register
+                            {loading ? (
+                              <Spinner
+                                size="sm"
+                                className="ms-2"
+                                color="warning"
+                              />
+                            ) : (
+                              "Register"
+                            )}
                           </button>
                         </div>
                       </div>

@@ -46,6 +46,7 @@ const DriverProfile = () => {
     rearPicture: "",
     rightSidePicture: "",
     leftSidePicture: "",
+    status: "",
   })
   const [confirm_alert, setconfirm_alert] = useState(false)
   const [dynamic_title, setdynamic_title] = useState("")
@@ -301,10 +302,11 @@ const DriverProfile = () => {
                       </Row>
                     </TabPane>
                   </TabContent>
-                  <div className="text-right mt-3 mb-3">
+
+                  <div className="text-right mt-3 mb-3 ">
                     <Button
                       color="success"
-                      className="btn btn-success waves-effect waves-light"
+                      className="btn btn-success waves-effect waves-light mr-3"
                       onClick={() => {
                         setAlertTitle(
                           `Are You Sure You Want To Approve ${driver.driverName}?`

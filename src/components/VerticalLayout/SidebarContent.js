@@ -13,7 +13,6 @@ import { Link } from "react-router-dom"
 import { withTranslation } from "react-i18next"
 
 const SidebarContent = props => {
-  console.log(props)
   const ref = useRef()
   // Use ComponentDidMount and ComponentDidUpdate method symultaniously
   useEffect(() => {
@@ -114,17 +113,23 @@ const SidebarContent = props => {
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-car"></i>
-                <span>{props.t("Drivers")}</span>
+                <span>{props.t("Driver Requests")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/driverrequests?statusId=0">{props.t("Driver Requests")}</Link>
+                  <Link to="/driverrequests?statusId=0">
+                    {props.t("Pending")}
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/driverrequests?statusId=2">{props.t("Approved ")} </Link>
+                  <Link to="/driverrequests?statusId=2">
+                    {props.t("Approved ")}{" "}
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/driverrequests?statusId=3">{props.t("Rejected")} </Link>
+                  <Link to="/driverrequests?statusId=3">
+                    {props.t("Rejected")}{" "}
+                  </Link>
                 </li>
               </ul>
             </li>

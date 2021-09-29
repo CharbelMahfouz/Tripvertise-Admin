@@ -9,18 +9,17 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 import "./datatables.scss"
 import { getDriverRequests } from "store/actions"
 import { Link } from "react-router-dom"
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom"
 
 const DriverRequests = () => {
- 
-  const {search} = useLocation();
-  const statusId = new URLSearchParams(search).get('statusId');
+  const { search } = useLocation()
+  const statusId = new URLSearchParams(search).get("statusId")
   const dispatch = useDispatch()
   const [columns, setColumns] = useState([])
   const [rows, setRows] = useState([])
 
   const { requests, loading } = useSelector(state => state.DriverRequests)
-  console.log(requests)
+
   const data = {
     columns: [
       {
@@ -97,17 +96,13 @@ const DriverRequests = () => {
     ],
     rows: rows,
   }
-  const fetchDriverRequests = (id) => {
+  const fetchDriverRequests = id => {
     dispatch(getDriverRequests(id))
   }
 
   useEffect(() => {
     fetchDriverRequests(statusId)
   }, [statusId])
-
-  // useEffect(() => {
-  //   requests && setColumns(requests.map(column => Object.entries(column)))
-  // }, [requests])
 
   useEffect(() => {
     requests &&
@@ -117,7 +112,7 @@ const DriverRequests = () => {
             name: req.driverName,
             email: req.email,
             phone: req.phoneNumber,
-            city: req.cityName,
+            city: req.city,
             car: req.carMake,
             color: req.carColor,
             plate: req.plateNumber,
@@ -137,24 +132,45 @@ const DriverRequests = () => {
           <Breadcrumbs
             maintitle="Admin"
             title="Driver Requests"
-            breadcrumbItem={statusId == 0 ? "Pending Requests": statusId == 2 ? "Approved Requests" : "Rejected Requests"}
+            breadcrumbItem={
+              statusId == 0
+                ? "Pending Requests"
+                : statusId == 2
+                ? "Approved Requests"
+                : "Rejected Requests"
+            }
           />
 
           <Row>
             <Col className="col-12">
-              
-              <Card>
-                <CardBody>
+              {/* <CardBody> */}
+              {loading ? (
+                <div className="d-flex justify-content-center">
+                  <Spinner size={"lg"} className="ms-2" color="warning" />
+                </div>
+              ) : (
+                <Card>
+                  <CardBody>
+                    <div>
+                      <CardTitle className="h4">
+                        {statusId == 0
+                          ? "Pending Requests"
+                          : statusId == 2
+                          ? "Approved Requests"
+                          : "Rejected Requests"}{" "}
+                      </CardTitle>
 
-                {loading ? <Spinner className="ms-2" color="warning" /> : (
-                  <div>
-                    <CardTitle className="h4">{statusId == 0 ? "Pending Requests": statusId == 2 ? "Approved Requests" : "Rejected Requests"} </CardTitle>
-  
-                    <MDBDataTable responsive striped bordered hover data={data} />
+                      <MDBDataTable
+                        responsive
+                        striped
+                        bordered
+                        hover
+                        data={data}
+                      />
                     </div>
-                )}
-                </CardBody>
-              </Card>
+                  </CardBody>
+                </Card>
+              )}
             </Col>
           </Row>
         </div>

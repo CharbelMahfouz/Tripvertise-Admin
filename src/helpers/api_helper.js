@@ -1,7 +1,6 @@
 import axios from "axios"
 
 //pass new generated access token here
-let token
 let user
 if (localStorage.getItem("authUser")) {
   user = JSON.parse(localStorage.getItem("authUser"))
@@ -28,7 +27,6 @@ export async function get(url, config = {}) {
   return await axiosApi
     .get(url, { ...config })
     .then(response => {
-      console.log(response.data)
       return response.data
     })
     .catch(error => console.log(error))

@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import MetaTags from "react-meta-tags"
 import React from "react"
 
-import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
+import { Row, Col, CardBody, Card, Alert, Container, Spinner } from "reactstrap"
 
 // Redux
 import { connect, useDispatch, useSelector } from "react-redux"
@@ -20,7 +20,7 @@ import tripvertiseIcon from "../../assets/images/tripvertise-icon.png"
 const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const { error } = useSelector(state => state.Login)
+  const { error, loading } = useSelector(state => state.Login)
   // handleValidSubmit
   const handleValidSubmit = (event, values) => {
     console.log(values)
@@ -109,8 +109,17 @@ const Login = () => {
                           <button
                             className="btn btn-primary w-md waves-effect waves-light"
                             type="submit"
+                            disabled={loading}
                           >
-                            Log In
+                            {loading ? (
+                              <Spinner
+                                size="sm"
+                                className="ms-2"
+                                color="warning"
+                              />
+                            ) : (
+                              "Login"
+                            )}
                           </button>
                         </Col>
                       </Row>

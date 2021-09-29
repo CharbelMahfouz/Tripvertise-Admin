@@ -79,7 +79,7 @@ const Navbar = props => {
             >
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link className="nav-link" to="dashboard">
+                  <Link className="nav-link" to="/dashboard">
                     <i className="ti-home me-2" />
                     {props.t("Dashboard")} {props.menuOpen}
                   </Link>
@@ -95,7 +95,7 @@ const Navbar = props => {
                     className="nav-link dropdown-toggle arrow-none"
                   >
                     <i className="ti-car me-2"></i>
-                    {props.t("Drivers")}
+                    {props.t("Driver Requests")}
                   </Link>
                   <div
                     className={classname(
@@ -106,13 +106,22 @@ const Navbar = props => {
                     <Row>
                       <Col lg={4}>
                         <div>
-                          <Link to="/driverrequests" className="dropdown-item">
-                            {props.t("Driver Requests")}
+                          <Link
+                            to="/driverrequests?statusId=0"
+                            className="dropdown-item"
+                          >
+                            {props.t("Pending")}
                           </Link>
-                          <Link to="/" className="dropdown-item">
+                          <Link
+                            to="/driverrequests?statusId=2"
+                            className="dropdown-item"
+                          >
                             {props.t("Approved")}
                           </Link>
-                          <Link to="/" className="dropdown-item">
+                          <Link
+                            to="/driverrequests?statusId=3"
+                            className="dropdown-item"
+                          >
                             {props.t("Rejected")}
                           </Link>
                         </div>
